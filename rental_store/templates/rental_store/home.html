@@ -1,0 +1,76 @@
+{% extends 'rental_store/main.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-7">
+                <h4 class="text-center"> Welcome to Car Rental Website! </h4>
+                <h4 class="text-center"> Easiest way to Rent Cars! </h4>
+                <br>
+                <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active"
+                                aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                    </div>
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active c-item">
+                            <img src={% static  'images/default.JPG' %}
+                                         class="d-block w-100 c-img" alt="Slide 1">
+
+                        </div>
+                        <div class="carousel-item c-item">
+                            <img src={% static  'images/opel_corsa.png' %}
+                                         class="d-block w-100 c-img" alt="Slide 2">
+
+                        </div>
+                        <div class="carousel-item c-item">
+                            <img src={% static  'images/mb_glc.png' %}
+                                         class="d-block w-100 c-img" alt="Slide 3">
+
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-6 col-md-4">
+                <div class="content-section">
+                    <br><br>
+                    <h5 class="text-center"> Our location: </h5>
+
+                    <br>
+                    <div id="map" style="height: 320px;"></div>
+                    <br>
+                    <li class="nav-item active">
+                        <a class="text-info h5" href="{% url 'map' %}">You can find as here!</a>
+
+                    <script>
+                        function initMap() {
+                            var map = new google.maps.Map(document.getElementById('map'), {
+                                center: {lat: 46.7830744, lng: 23.6876157},
+                                zoom: 12
+                            });
+                        }
+                    </script>
+                    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{maps_key}}&callback=initMap"></script>
+
+
+                </div>
+            </div>
+
+        </div>
+{% endblock content %}

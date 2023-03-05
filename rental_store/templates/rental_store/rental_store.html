@@ -1,0 +1,36 @@
+{% extends 'rental_store/main.html' %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        {% for product in products %}
+            <div class="col-lg-4">
+                <img class="thumbnail" src="{{ product.imageURL }}">
+                <div class="box-element product">
+                    <h4><strong>{{ product.name }}</strong></h4>
+                    <hr>
+                    <div>
+                    <strong>Engine: {{product.engine}}</strong></h5>
+                    </div>
+                    <div>
+                    <strong>Gearbox: {{product.gear_box}}</strong></h5>
+                        </div>
+                    <div>
+                    <strong>Air conditioning: {{product.air_conditioning}}</strong></h5>
+                        </div>
+                    <hr>
+
+
+                    <button data-product={{product.id}} data-action="add"
+                            class="btn btn-outline-secondary add-btn update-cart">Book Now</button>
+                    <h4 style="display: inline-block; float: right">
+                        <strong>${{product.price}} / day</strong></h4>
+
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+{% endblock content %}
+
+

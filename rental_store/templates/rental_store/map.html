@@ -1,0 +1,17 @@
+{% extends 'rental_store/main.html' %}
+{% block content %}
+{% load static %}
+
+<div id="map" style="height: 460px;"></div>
+<script>
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 46.7830744, lng: 23.6876157},
+      zoom: 12
+    });
+  }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{maps_key}}&callback=initMap"></script>
+
+
+{% endblock content %}

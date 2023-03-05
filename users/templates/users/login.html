@@ -1,0 +1,35 @@
+{% extends 'rental_store/main.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <br><br><Br>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center"> Login</h3>
+                    </div>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="card-body">
+                            {{ form|crispy }}
+                        </div>
+
+                        <div class="card-footer text-center">
+                            <button type="submit" class="btn btn-outline-success">Login</button>
+
+                        </div>
+                    </form>
+                    <div class="border-top pt-3">
+                        <small class="text-muted">
+                            Need An Account? <a class="ml-1" href="{% url 'register' %}">Sign Up Now</a>
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}
